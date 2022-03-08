@@ -40,7 +40,7 @@ class MDfive:
             if self.__mdfive:
                 break
         print("\n查询结束!")
-        print('time used: {0}'.format(time() - start_time))
+        print('使用了 %f 秒'%(time() - start_time))
 
 if __name__ == '__main__':
     MDfive().main()
