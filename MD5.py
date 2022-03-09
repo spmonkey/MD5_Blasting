@@ -9,6 +9,7 @@ class MDfive:
     def __init__(self):
         self.__mdfive = 0
 
+    # md5爆破函数
     def md5_poj(self, md5_value, k):
         if len(md5_value) != 32:
             print("error")
@@ -20,7 +21,15 @@ class MDfive:
             if md5(item.encode()).hexdigest() == md5_value:
                 print('\n success: ' + md5_value + ' ==> ' + item)
                 self.__mdfive = 1
-
+                
+    def md5_first(self, md5_firstvalue):
+        if len(md5_firstvalue) != 32:
+            print("error")
+            return
+        elif md5_firstvalue == "31d6cfe0d16ae931b73c59d7e0c089c0":
+            print("\n密码为空!")
+            self.__mdfive = 1
+            
     def main(self):
         # NT_md5 = 'e00cf25ad42683b3df678c61f42c6bda'
         NT_md5 = input("请填写MD5：")
@@ -28,6 +37,10 @@ class MDfive:
         t_list = []
         print("正在查询...")
         # 添加线程
+        t_first = threading.Thread(target=self.md5_first, args=(NT_md5,))
+        t_first.daemon = 1
+        # t_list.append(t_first)
+        t_first.start()
         for k in range(5, 18):
             t = threading.Thread(target=self.md5_poj, args=(NT_md5, k))
             t.daemon = 1    # 守护程序
