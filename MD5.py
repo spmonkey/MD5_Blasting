@@ -8,6 +8,7 @@ Author:
 邮箱：
     spmonkey@hscsec.cn
 '''
+# -*- coding:utf-8 -*-
 import threading
 from hashlib import md5
 from itertools import permutations
