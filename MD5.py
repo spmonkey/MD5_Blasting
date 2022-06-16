@@ -1,3 +1,13 @@
+'''
+Function:
+    MD5爆破脚本
+Author:
+    spmonkey
+博客链接:
+    https://www.cnblogs.com/spmonkey/
+邮箱：
+    spmonkey@hscsec.cn
+'''
 import threading
 from hashlib import md5
 from itertools import permutations
